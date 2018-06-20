@@ -16,24 +16,28 @@ namespace Gestion_Comercial
             InitializeComponent();
             base.LTitulo_Cambiar("Iniciar Sesion");
         }
-        Clases.Conexion Conexion = new Clases.Conexion();
 
+        System.Data.SQLite.SQLiteConnection Connection;
+        public System.Data.SQLite.SQLiteConnection OpenConnection() =>
+        Connection = LIB.SQLiteDate.SQLiteConection("SqlDates.s3db", 3);
+
+        Boolean hayRows = false;
         private bool HayRows()
         {
-           
+            OpenConnection();
             DataTable dataTable = new DataTable();
             string sql = "select * from TUsuario";
 
             SQLiteDataAdapter dataAdapter =
-                new SQLiteDataAdapter(sql, Conexion.OpenConnection());
+                new SQLiteDataAdapter(sql, Connection);
 
-            //dataAdapter.Fill(dataTable);
-
+            dataAdapter.Fill(dataTable);
+            MessageBox.Show("dataadap: " + dataAdapter +" datatable: "+ dataTable);
             if(dataTable.Rows.Count > 0) {
-                Conexion.CloseConnction();return true;
+                Connection.Close(); MessageBox.Show("Inicial" + hayRows); return hayRows= true;
             }
             else {
-                Conexion.CloseConnction();return false;
+                Connection.Close(); MessageBox.Show("Inicial" + hayRows); return hayRows = false;
             }
             
         }
@@ -48,14 +52,14 @@ namespace Gestion_Comercial
         private void Iniciar() {
             string us;
             string cl;
-            MessageBox.Show("Inicial"+HayRows());
-            if(HayRows()) {
+            
+            if(hayRows) {
                 DataTable dataTable = new DataTable();
                 string sql
                     = "select * from TUsuario where Usuario = ? and Clave = ?";
-
+                OpenConnection();
                 SQLiteCommand command =
-                    new SQLiteCommand(sql, Conexion.OpenConnection());
+                    new SQLiteCommand(sql, Connection);
                 command.Parameters.Add(new SQLiteParameter("Usuario", TBUser.Text));
                 command.Parameters.Add(new SQLiteParameter("Clave", TBUser.Text));
 
@@ -64,7 +68,7 @@ namespace Gestion_Comercial
 
                 dataAdapter.Fill(dataTable);
 
-                Conexion.CloseConnction();
+                Connection.Close();
                 if(TBUser.Text == "admin")
                     user = true;
                 else {

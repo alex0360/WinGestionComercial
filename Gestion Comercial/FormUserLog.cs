@@ -17,20 +17,20 @@ namespace Gestion_Comercial
             InitializeComponent();
         }
         // Connection
-        Clases.Conexion Conexion = new Clases.Conexion();
-       
+
+
         #region Base de Datos
-        // Muestra los Datos en el DataGridView
+        //Muestra los Datos en el DataGridView
         private Task MostrarDatosAsync() => Task.Run(() => {
             DataTable dataTable = new DataTable();
             string sql = "select * from TUsuario";
 
             System.Data.SQLite.SQLiteDataAdapter sQ =
-            new System.Data.SQLite.SQLiteDataAdapter(sql, Conexion.OpenConnection());
+            new System.Data.SQLite.SQLiteDataAdapter(sql, Clases.Conexion.Connection);
 
             sQ.Fill(dataTable);
             DGVUsuario.DataSource = dataTable;
-            Conexion.CloseConnction();
+            Clases.Conexion.Connection.Close();
 
             return true;
         });
@@ -40,13 +40,14 @@ namespace Gestion_Comercial
             string clave = TBClave.Text;
             string sql = "Insert into TUsuario (Usuario, Clave) values (?,?)";
 
+            Clases.Conexion.Connection.Open();
             System.Data.SQLite.SQLiteCommand command =
-                new System.Data.SQLite.SQLiteCommand(sql, Conexion.OpenConnection());
+                new System.Data.SQLite.SQLiteCommand(sql, Clases.Conexion.Connection);
             command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("Usuario", user));
             command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("Clave", clave));
             command.ExecuteNonQuery();
 
-            Conexion.CloseConnction();
+            Clases.Conexion.Connection.Close();
             return true;
         });
 
@@ -54,11 +55,20 @@ namespace Gestion_Comercial
 
         private async void FormUserLog_Load(object sender, EventArgs e)
         {
-            if(Conexion == null) {
+            if(Clases.Conexion.Connection == null) {
                 MessageBox.Show("Conexion fallida");
             }
             else {
-                await MostrarDatosAsync();
+                //await MostrarDatosAsync();
+                DataTable dataTable = new DataTable();
+                string sql = "select * from TUsuario";
+
+                System.Data.SQLite.SQLiteDataAdapter sQ =
+                new System.Data.SQLite.SQLiteDataAdapter(sql, Clases.Conexion.Connection);
+
+                sQ.Fill(dataTable);
+                DGVUsuario.DataSource = dataTable;
+                Clases.Conexion.Connection.Close();
             }
         }
 
