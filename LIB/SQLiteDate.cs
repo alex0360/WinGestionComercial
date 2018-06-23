@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LIB
+﻿namespace LIB
 {
     public class SQLiteDate
     {
-        public static System.Data.SQLite.SQLiteConnection SQLiteConection(String Archivo, Int16 Version = 3)
+        public static System.Data.SQLite.SQLiteConnection SQLiteConection
+            (System.String Archivo, System.Int16 Version = 3)
         {
-            System.Data.SQLite.SQLiteConnection Connection;
+            // Data Source = SqlDates.s3db; Version = 3;
             System.String ConnectionString = "Data Source=";
             System.String VersionString = ";Version=";
 
-            Connection =
+            var  Connection =
                  new System.Data.SQLite.SQLiteConnection
              (ConnectionString + Archivo + VersionString + Version.ToString() + ";"); 
 
