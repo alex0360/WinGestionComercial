@@ -2,12 +2,24 @@
 {
     public class SQLiteDate
     {
-        public static System.Data.SQLite.SQLiteConnection SQLiteConection
-            (System.String Archivo, System.Int16 Version = 3)
+        public static System.Data.SQLite.SQLiteConnection
+            SQLiteConection(System.String ConnectionString)
+        {
+           var Connection = new System.Data.SQLite.SQLiteConnection(ConnectionString);
+
+            try {
+                Connection.Open();
+                return Connection;
+            } catch {
+                return null;
+            }
+        }
+        /*public static System.Data.SQLite.SQLiteConnection 
+            SQLiteConection(System.String Archivo, System.Int16 Version = 3)
         {
             // Data Source = SqlDates.s3db; Version = 3;
-            System.String ConnectionString = "Data Source=";
-            System.String VersionString = ";Version=";
+            var ConnectionString = "Data Source=";
+            var VersionString = ";Version=";
 
             var  Connection =
                  new System.Data.SQLite.SQLiteConnection
@@ -21,6 +33,6 @@
                     
                     return null;
                 }    
-        }
+        }*/
     }
 }

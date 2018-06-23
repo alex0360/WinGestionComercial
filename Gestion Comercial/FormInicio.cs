@@ -9,7 +9,7 @@ namespace Gestion_Comercial
             InitializeComponent();
             
             FormLogin login = new FormLogin();
-            //login.ShowDialog();
+            login.ShowDialog();
         }
 
         private void FormInicio_Load(object sender, System.EventArgs e) => Text = "Gestor Comercial " + System.DateTime.Now.ToShortDateString();

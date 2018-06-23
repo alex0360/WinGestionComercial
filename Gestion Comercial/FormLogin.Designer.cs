@@ -144,7 +144,6 @@
             this.Controls.Add(this.BIniciar);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.Controls.SetChildIndex(this.PTitulo, 0);
             this.Controls.SetChildIndex(this.BIniciar, 0);
             this.Controls.SetChildIndex(this.BCancelar, 0);
