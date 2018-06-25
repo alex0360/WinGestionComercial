@@ -21,7 +21,20 @@ namespace Gestion_Comercial
 
         #region Base de Datos
         //Muestra los Datos en el DataGridView
-        private Task MostrarDatosAsync() => Task.Run(() => {
+        //private Task MostrarDatosAsync() => Task.Run(() => {
+        //    DataTable dataTable = new DataTable();
+        //    string sql = "select * from TUsuario";
+
+        //    System.Data.SQLite.SQLiteDataAdapter sQ =
+        //    new System.Data.SQLite.SQLiteDataAdapter(sql, Clases.Conexion.Connection);
+
+        //    sQ.Fill(dataTable);
+        //    DGVUsuario.DataSource = dataTable;
+        //    Clases.Conexion.Connection.Close();
+
+        //    return true;
+        //});
+        private void MostrarDatosAsync() {
             DataTable dataTable = new DataTable();
             string sql = "select * from TUsuario";
 
@@ -31,10 +44,7 @@ namespace Gestion_Comercial
             sQ.Fill(dataTable);
             DGVUsuario.DataSource = dataTable;
             Clases.Conexion.Connection.Close();
-
-            return true;
-        });
-
+        }
         private Task GuardarDatosAsync() => Task.Run(() => {
             string user = TBUsuario.Text;
             string clave = TBClave.Text;
@@ -59,16 +69,7 @@ namespace Gestion_Comercial
                 MessageBox.Show("Conexion fallida");
             }
             else {
-                //await MostrarDatosAsync();
-                DataTable dataTable = new DataTable();
-                string sql = "select * from TUsuario";
-
-                System.Data.SQLite.SQLiteDataAdapter sQ =
-                new System.Data.SQLite.SQLiteDataAdapter(sql, Clases.Conexion.Connection);
-
-                sQ.Fill(dataTable);
-                DGVUsuario.DataSource = dataTable;
-                Clases.Conexion.Connection.Close();
+                MostrarDatosAsync();
             }
         }
 
@@ -86,7 +87,7 @@ namespace Gestion_Comercial
             }
             else {
                 await GuardarDatosAsync();
-                await MostrarDatosAsync();
+                MostrarDatosAsync();
                 BCancelar_Click(sender, e);
             }
         }
