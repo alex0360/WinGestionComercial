@@ -1,6 +1,6 @@
 ﻿namespace Gestion_Comercial
 {
-    partial class FormUsuario
+    partial class FormCliente
     {
         /// <summary>
         /// Variable del diseñador necesaria.

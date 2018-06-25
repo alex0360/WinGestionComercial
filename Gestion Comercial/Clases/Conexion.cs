@@ -11,5 +11,11 @@
         //SqlDates.s3db
         public void CloseConnction() =>
             Connection.Close();
+
+        ~Conexion()
+        {
+            if(Conexion.Connection.State != System.Data.ConnectionState.Closed)
+                Conexion.Connection.Close();
+        }
     }
 }

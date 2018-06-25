@@ -39,6 +39,7 @@
             this.PTitulo = new System.Windows.Forms.Panel();
             this.BCerrar = new System.Windows.Forms.Button();
             this.PBInicio = new System.Windows.Forms.PictureBox();
+            this.LIdenty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SContenedor)).BeginInit();
             this.SContenedor.Panel1.SuspendLayout();
             this.SContenedor.Panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // SContenedor.Panel2
             // 
+            this.SContenedor.Panel2.Controls.Add(this.LIdenty);
             this.SContenedor.Panel2.Controls.Add(this.PUsuario);
             this.SContenedor.Panel2.Controls.Add(this.PTitulo);
             this.SContenedor.Panel2.Controls.Add(this.PBInicio);
@@ -201,6 +203,11 @@
             this.PBInicio.Name = "PBInicio";
             this.PBInicio.TabStop = false;
             // 
+            // LIdenty
+            // 
+            resources.ApplyResources(this.LIdenty, "LIdenty");
+            this.LIdenty.Name = "LIdenty";
+            // 
             // FormInicio
             // 
             resources.ApplyResources(this, "$this");
@@ -214,6 +221,7 @@
             this.Load += new System.EventHandler(this.FormInicio_Load);
             this.SContenedor.Panel1.ResumeLayout(false);
             this.SContenedor.Panel2.ResumeLayout(false);
+            this.SContenedor.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SContenedor)).EndInit();
             this.SContenedor.ResumeLayout(false);
             this.PUsuario.ResumeLayout(false);
@@ -238,5 +246,6 @@
         private System.Windows.Forms.Button BCargarUsuario;
         private System.Windows.Forms.Panel PUsuario;
         protected System.Windows.Forms.Button BCerrarPanel;
+        private System.Windows.Forms.Label LIdenty;
     }
 }

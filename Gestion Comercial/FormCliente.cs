@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace Gestion_Comercial
 {
-    public partial class FormUsuario : FormPadre
+    public partial class FormCliente : FormPadre
     {
 
-        public FormUsuario()
+        public FormCliente()
         {
             InitializeComponent();
             base.LTitulo_Cambiar("Crear Usuario");

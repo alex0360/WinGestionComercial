@@ -261,6 +261,33 @@
   <data name="&gt;&gt;SContenedor.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="LIdenty.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LIdenty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 491</value>
+  </data>
+  <data name="LIdenty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 17</value>
+  </data>
+  <data name="LIdenty.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="LIdenty.Text" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="&gt;&gt;LIdenty.Name" xml:space="preserve">
+    <value>LIdenty</value>
+  </data>
+  <data name="&gt;&gt;LIdenty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LIdenty.Parent" xml:space="preserve">
+    <value>SContenedor.Panel2</value>
+  </data>
+  <data name="&gt;&gt;LIdenty.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="BCerrarPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -364,7 +391,7 @@
     <value>1</value>
   </data>
   <data name="BUsuario.Text" xml:space="preserve">
-    <value>Usuarios</value>
+    <value>Clientes</value>
   </data>
   <data name="BUsuario.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
@@ -406,7 +433,7 @@
     <value>SContenedor.Panel2</value>
   </data>
   <data name="&gt;&gt;PUsuario.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="PTitulo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -466,7 +493,7 @@
     <value>SContenedor.Panel2</value>
   </data>
   <data name="&gt;&gt;PTitulo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="PBInicio.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -4082,7 +4109,7 @@
     <value>SContenedor.Panel2</value>
   </data>
   <data name="&gt;&gt;PBInicio.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;SContenedor.Panel2.Name" xml:space="preserve">
     <value>SContenedor.Panel2</value>

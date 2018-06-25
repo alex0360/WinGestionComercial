@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.SQLite;
+
 
 namespace Gestion_Comercial
 {
@@ -25,7 +21,7 @@ namespace Gestion_Comercial
             if((TBUser.Text != string.Empty)&&(TBClave.Text != string.Empty))
             Loggin.CargarIdenty(TBUser.Text, TBClave.Text);
             
-            if( Loggin.identy != null) {
+            if( Clases.Data.Login.identy != null) {
                 Close();
             }
             else {
@@ -36,7 +32,6 @@ namespace Gestion_Comercial
             }
         } 
     
-
         private void BIniciar_Click(object sender, EventArgs e) => Iniciar();
         private void BIniciar_MouseHover(object sender, EventArgs e) => CompStandar.BorderMouseHover(BIniciar);
         private async void BIniciar_MouseLeave(object sender, EventArgs e)

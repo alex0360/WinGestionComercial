@@ -7,12 +7,12 @@ namespace Gestion_Comercial
         public FormInicio()
         {
             InitializeComponent();
-            
+            Text = "Gestor Comercial " + System.DateTime.Now.ToShortDateString();
             FormLogin login = new FormLogin();
             login.ShowDialog();
         }
 
-        private void FormInicio_Load(object sender, System.EventArgs e) => Text = "Gestor Comercial " + System.DateTime.Now.ToShortDateString();
+        private void FormInicio_Load(object sender, System.EventArgs e) => LIdenty.Text = Clases.Data.Login.identy;
 
         #region Button AcercaDe
         private void AcercaDe()
@@ -82,7 +82,7 @@ namespace Gestion_Comercial
         #region Button Usuario
         private void BUsuario_Click(object sender, System.EventArgs e)
         {
-            FormUsuario formUser = new FormUsuario();
+            FormCliente formUser = new FormCliente();
             formUser.ShowDialog();
             formUser.Dispose();
         }

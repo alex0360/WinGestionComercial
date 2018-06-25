@@ -2,13 +2,15 @@
 {
     public class Login
     {
-        public string identy = null;
+        public static string identy = null;
         public string CargarIdenty(string usuario, string clave)
         {
             var Select = "Select Usuario, fkUsuarioXML from TUsuario Where Usuario = ? AND Clave = ?";
 
             try {
-                //Conexion.Open();
+                if(Conexion.Connection.State == System.Data.ConnectionState.Closed)// Si la coneccion esta cerrada
+                    Conexion.Connection.Open();
+
                 var cmd = new System.Data.SQLite.SQLiteCommand(Select, Conexion.Connection);
 
                 cmd.Parameters.Add(new System.Data.SQLite.SQLiteParameter("Usuario", usuario));// Forma uno
@@ -24,9 +26,13 @@
                 else return null;
 
             } catch(System.Exception e) {
+
                 System.Windows.Forms.MessageBox.Show(e.Message.ToString());
                 return null;
-            } finally {Conexion.Connection.Close();}
+            } finally {
+                if(Conexion.Connection.State != System.Data.ConnectionState.Closed)
+                    Conexion.Connection.Close();
+            }
             
         }
     }

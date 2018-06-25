@@ -121,8 +121,10 @@
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\DataBase\CreateTable.cs" />
+    <Compile Include="Clases\DataBase\TipoQuery.cs" />
     <Compile Include="Clases\MensajeConfirmar.cs" />
     <Compile Include="Clases\Data\Login.cs" />
+    <Compile Include="Clases\TiposComando.cs" />
     <Compile Include="FormDatosUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,11 +173,11 @@
     <Compile Include="FormUserLog.Designer.cs">
       <DependentUpon>FormUserLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUsuario.cs">
+    <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUsuario.Designer.cs">
-      <DependentUpon>FormUsuario.cs</DependentUpon>
+    <Compile Include="FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,8 +208,8 @@
     <EmbeddedResource Include="FormUserLog.resx">
       <DependentUpon>FormUserLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUsuario.resx">
-      <DependentUpon>FormUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
