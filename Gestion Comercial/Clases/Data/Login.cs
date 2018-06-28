@@ -3,10 +3,9 @@
     public class Login
     {
         public static string identy = null;
+        private string Select = "Select Usuario, fkUsuarioXML from TUsuario Where Usuario = ? AND Clave = ?";
         public string CargarIdenty(string usuario, string clave)
-        {
-            var Select = "Select Usuario, fkUsuarioXML from TUsuario Where Usuario = ? AND Clave = ?";
-
+        {         
             try {
                 if(Conexion.Connection.State == System.Data.ConnectionState.Closed)// Si la coneccion esta cerrada
                     Conexion.Connection.Open();

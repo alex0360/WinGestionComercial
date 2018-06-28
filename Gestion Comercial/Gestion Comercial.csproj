@@ -124,7 +124,6 @@
     <Compile Include="Clases\DataBase\TipoQuery.cs" />
     <Compile Include="Clases\MensajeConfirmar.cs" />
     <Compile Include="Clases\Data\Login.cs" />
-    <Compile Include="Clases\TiposComando.cs" />
     <Compile Include="FormDatosUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,13 +9,11 @@
             (System.Configuration.ConfigurationManager.AppSettings["ConnectionString"]);
 
         //SqlDates.s3db
-        public void CloseConnction() =>
-            Connection.Close();
 
         ~Conexion()
         {
-            if(Conexion.Connection.State != System.Data.ConnectionState.Closed)
-                Conexion.Connection.Close();
+            if(Connection.State != System.Data.ConnectionState.Closed)
+               Connection.Close();
         }
     }
 }

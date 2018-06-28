@@ -35,6 +35,7 @@ namespace Gestion_Comercial
         //    return true;
         //});
         private void MostrarDatosAsync() {
+
             DataTable dataTable = new DataTable();
             string sql = "select * from TUsuario";
 
@@ -45,25 +46,11 @@ namespace Gestion_Comercial
             DGVUsuario.DataSource = dataTable;
             Clases.Conexion.Connection.Close();
         }
-        private Task GuardarDatosAsync() => Task.Run(() => {
-            string user = TBUsuario.Text;
-            string clave = TBClave.Text;
-            string sql = "Insert into TUsuario (Usuario, Clave) values (?,?)";
-
-            Clases.Conexion.Connection.Open();
-            System.Data.SQLite.SQLiteCommand command =
-                new System.Data.SQLite.SQLiteCommand(sql, Clases.Conexion.Connection);
-            command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("Usuario", user));
-            command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("Clave", clave));
-            command.ExecuteNonQuery();
-
-            Clases.Conexion.Connection.Close();
-            return true;
-        });
+        
 
         #endregion
 
-        private async void FormUserLog_Load(object sender, EventArgs e)
+        private void FormUserLog_Load(object sender, EventArgs e)
         {
             if(Clases.Conexion.Connection == null) {
                 MessageBox.Show("Conexion fallida");
@@ -86,7 +73,7 @@ namespace Gestion_Comercial
                 ConfirmarClave();    
             }
             else {
-                await GuardarDatosAsync();
+                await Clases.DataBase.Insert.InsertAsync(TBUsuario.Text, TBClave.Text);
                 MostrarDatosAsync();
                 BCancelar_Click(sender, e);
             }
